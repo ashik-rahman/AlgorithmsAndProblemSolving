@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsAndProblemSolving
 {
-    class LeetCodeTwoSum
+    class LeetCodeTwoSum : PrintInputOutput
     {
         public int[] TwoSum(int[] nums, int target)
         {
@@ -20,7 +20,16 @@ namespace AlgorithmsAndProblemSolving
                 }
             }
             return null;
-
+        }
+        public void CallAndPrint(int[] nums, int target)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var results = TwoSum(nums, target);
+            watch.Stop();
+            Console.WriteLine($"1. Two Sums\n" +
+                              $"Input Array = {this.printInputArray(nums)} target = {target}\n" +
+                              $"Result: [{results[0]}, {results[1]}] \n" +
+                              $"Execution Speed: {watch.ElapsedMilliseconds}ms \n");
         }
     }
 }
